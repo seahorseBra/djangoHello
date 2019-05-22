@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block mainBlock %}
+    <div>
+        {{ world }} 时间：{{ time }}
+    </div>
+    <div>
+        {% for item in list %}
+            <li>{{ forloop.revcounter }}</li>
+            <li>{{ item.name }} {{ item.vote_count }}</li>
+        {% endfor %}
+
+    </div>
+{% endblock %}
