@@ -1,11 +1,20 @@
 {% extends 'base.html' %}
 {% load poll_extras %}
+{% load cache %}
+{% load humanize %}
 {% block mainBlock %}
     <div>
         {% autoescape off %}
-            {{ world|cut2 }} 时间：{{ time }}
+            {% cache 10 time %}
+                {{ world|cut2:'周超' }} 时间：{{ time }}
+            {% endcache %}
+            <p>{{ time }}</p>
         {% endautoescape %}
-        {#        {{ current_time2  "%Y‐%M‐%d %I:%M %p" }}#}
+        {#        {% current_time2 "%Y‐%M‐%d" %}#}
+        {% test_tag %}
+        {% current_time2 %Y-%M %}
+
+        {{ 1000000|intcomma }}
     </div>
     <div>
         {% for item in list %}

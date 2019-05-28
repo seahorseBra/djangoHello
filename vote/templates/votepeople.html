@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block mainBlock %}
+    <ul>
+        {% for object in object_list %}
+            <li>{{ object.key }} ： {{ object.vote_who }}</li>
+        {% endfor %}
+
+    </ul>
+{% endblock %}
